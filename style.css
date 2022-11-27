@@ -8,7 +8,7 @@ body {
 }
 
 #top {
-    padding: 85px 0px 85px 0px; 
+    padding: 80px 0px 80px 0px; 
     margin: 0;
     text-align: center; 
 }
@@ -19,17 +19,25 @@ body {
 }
 
 #main {
-    position: absolute; 
-    margin: 0px auto 0px auto; 
-    left: 50%; 
-    transform: translate(-50%, 0%); 
+    position: relative; 
+    margin: 0px auto 100px auto; 
+    min-height: 55vh; 
     width: 1000px; 
-    top: 239px; 
-    bottom: 100px;
+    height: auto; 
     border-radius: 10px; 
     background-color:aliceblue;  
     color:black; 
+    opacity: 0.9; 
 }
 #maindiv {
-    margin: 30px; 
+    position: relative; 
+    padding: 10px; 
+}
+#maintop {
+    position: relative;
+    height: 100px; 
+}
+#mainbody {
+    position: relative;
+    height: auto; 
 }
