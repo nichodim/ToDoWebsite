@@ -1,3 +1,38 @@
 body {
-    background-color:aqua; 
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin: 0; 
+    background-image: url(assets/images/mountains.jpg);
+    background-repeat: no-repeat; 
+    background-size: auto; 
+    background-position: center; 
+}
+
+#top {
+    padding-top: 85px; 
+    padding-bottom: 85px; 
+    margin: 0;
+    text-align: center; 
+}
+#title {
+    font-size: 60px;
+    font-weight: bold; 
+    color:aliceblue; 
+}
+
+#main {
+    background-color:aliceblue; 
+    margin-top: 0; 
+    margin-bottom: 50px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    position: absolute; 
+    left: 50%; 
+    transform: translate(-50%, 0%); 
+    width: 1000px; 
+    top: 239px; 
+    bottom: 50px; 
+    color:black; 
+}
+#maindiv {
+    margin: 20px; 
 }
