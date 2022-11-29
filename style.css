@@ -35,30 +35,38 @@ body {
 }
 #maintop {
     position: relative;
-    height: 100px; 
+    height: 80px; 
 }
 #textbox {
-    position: absolute; 
+    position: relative; 
     border-radius: 5px; 
     border-width: 1px;
-    height: 75px; 
+    height: 68px; 
     width: 810px; 
-    top: 13px; 
-    left: 25px; 
-}
-#addbutton {
-    position: absolute; 
-    left: 875px;
-    top: 13px; 
-    width: 79px; 
-    height: 79px; 
+    top: 10px; 
+    left: 20px; 
+    font-size: 30px; 
     padding: 0; 
     margin: 0; 
-    background: linear-gradient(180deg, #a7effc, #93c2ff); 
+}
+#addbutton {
+    position: relative; 
+    left: 60px;
+    top: 4px; 
+    width: 75px; 
+    height: 70px; 
+    padding: 0; 
+    margin: 0; 
     border-width: 1px;
     border-radius: 5px; 
     letter-spacing: 1px;
     font-weight: bold; 
+    background-color:aliceblue; 
+    transition-duration: 0.4s;
+}
+#addbutton:hover {
+    background-color: #54c6ff;
+    color: aliceblue;
 }
 #line {
     height: 1px; 
