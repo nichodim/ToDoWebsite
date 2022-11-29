@@ -37,7 +37,35 @@ body {
     position: relative;
     height: 100px; 
 }
+#textbox {
+    position: absolute; 
+    border-radius: 5px; 
+    border-width: 1px;
+    height: 75px; 
+    width: 810px; 
+    top: 13px; 
+    left: 25px; 
+}
+#addbutton {
+    position: absolute; 
+    left: 875px;
+    top: 13px; 
+    width: 79px; 
+    height: 79px; 
+    padding: 0; 
+    margin: 0; 
+    background: linear-gradient(180deg, #a7effc, #93c2ff); 
+    border-width: 1px;
+    border-radius: 5px; 
+    letter-spacing: 1px;
+    font-weight: bold; 
+}
+#line {
+    height: 1px; 
+    margin: 15px 10px 15px 10px; 
+    background-color: black; 
+}
 #mainbody {
     position: relative;
-    height: auto; 
+    height: 200px; 
 }
