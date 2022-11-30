@@ -6,4 +6,5 @@ function createToDo() {
     l.setAttribute('class', 'list'); 
 
     document.getElementById("myList").appendChild(l); 
+    document.getElementById('textbox').value = "";
 }
