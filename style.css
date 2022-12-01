@@ -1,7 +1,6 @@
 body {
     margin: 0; 
     background-image: url(assets/images/mountains.jpg);
-    background-repeat: no-repeat; 
     background-size: auto; 
     background-position: center; 
     font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
@@ -70,15 +69,40 @@ body {
 }
 #line {
     height: 1px; 
-    margin: 15px 10px 15px 10px; 
+    margin: 20px 10px 20px 10px; 
     background-color: black; 
 }
 #mainbody {
     position: relative;
     height: auto; 
 }
+#buttondiv { 
+    position: absolute; 
+    min-height: 35px; 
+    width: 35px; 
+    padding-right: 0px; 
+}
+#myList {
+    position: relative; 
+    left: 50px; 
+    margin-left: 10px; 
+    padding-left: 0px; 
+}
 .list {
     font-size: 30px; 
-    margin: 10px 0px 10px 0px; 
-    left: 10px; 
+    margin: 15px 0px 15px 0px;  
+    list-style: none; 
+}
+.checker {
+    position: relative; 
+    margin: 8.75px 8.75px 24px 8.75px; 
+    width: 17.5px; 
+    height: 17.5px; 
+    border-radius: 10px; 
+    background-color:aliceblue; 
+    transition-duration: 0.4s;
+}
+.checker:hover {
+    background-color: #54c6ff;
+    color: aliceblue;
 }
