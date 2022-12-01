@@ -75,9 +75,10 @@ body {
 }
 #mainbody {
     position: relative;
-    height: 200px; 
+    height: auto; 
 }
 .list {
     font-size: 30px; 
-    margin: 5px 0px 5px 0px; 
+    margin: 10px 0px 10px 0px; 
+    left: 10px; 
 }
