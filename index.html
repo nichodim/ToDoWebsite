@@ -29,6 +29,9 @@
     </section>
 </body>
 <script>
+    let id = 0; 
+    const btnActive = []; 
+
     const textbox = document.getElementById("textbox");
     textbox.addEventListener("keypress", function onEvent(event) {
     if (event.key === "Enter") {

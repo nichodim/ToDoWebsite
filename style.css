@@ -95,14 +95,15 @@ body {
 }
 .checker {
     position: relative; 
-    margin: 8.75px 8.75px 24px 8.75px; 
+    margin: 8.7px 8.75px 24px 8.75px; 
     width: 17.5px; 
     height: 17.5px; 
     border-radius: 10px; 
+    border-width: 1px;
     background-color:aliceblue; 
     transition-duration: 0.4s;
 }
 .checker:hover {
-    background-color: #54c6ff;
+    background-color: #b6e7ff;
     color: aliceblue;
 }
