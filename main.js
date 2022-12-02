@@ -13,9 +13,15 @@ function createToDo() {
     l.setAttribute('class', 'list'); 
 
     b.setAttribute('id', txtnos); 
+    b.setAttribute('onclick', 'checkerClicked()'); 
     b.setAttribute('class', 'checker'); 
 
     document.getElementById("myList").appendChild(l); 
     document.getElementById("buttondiv").appendChild(b); 
     document.getElementById('textbox').value = "";
 }
+
+function checkerClicked() {
+    
+}
+
