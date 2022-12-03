@@ -14,22 +14,26 @@
             <p1 id="title">To Do List</p1>
         </div>
     </section>
-    <section id="main">
-        <div id="maindiv">
-            <div id="maintop">
-                <input id="textbox" type="text"/>
-                <button onclick="createToDo()" id="addbutton" class="button">ADD</button>
+    <main>
+        <section id="main">
+            <div id="maindiv">
+                <div id="maintop">
+                    <input id="textbox" type="text"/>
+                    <button onclick='createToDo()' id='addbutton'>ADD</button>
+                    <button onclick='removeToDo()' id='removebutton'>Remove (0)</button>
+                </div>
+                <div id="line"></div>
+                <div id="mainbody">
+                    <div id="buttondiv"></div>
+                    <ul id="myList"></ul>
+                </div>
             </div>
-            <div id="line"></div>
-            <div id="mainbody">
-                <div id="buttondiv"></div>
-                <ul id="myList"></ul>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 </body>
 <script>
     let id = 0; 
+    let rcount = 0; 
     const btnActive = []; 
 
     textEnter(); 

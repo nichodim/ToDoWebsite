@@ -48,15 +48,33 @@ function firstB() {
 function checkerClicked(idnum) {
     const b = document.getElementById(`b${idnum}`); 
     const l = document.getElementById(`l${idnum}`); 
+    const rb = document.getElementById('removebutton'); 
 
     if (btnActive[idnum] !== true) {
         b.className = 'checkerA'; 
         l.className = 'listA'; 
+        rcount++; 
+        rb.innerHTML = `Remove (${rcount})`; 
         btnActive[idnum] = true; 
     }
     else {
         b.className = 'checkerUA'; 
         l.className = 'listUA'; 
+        rcount--; 
+        rb.innerHTML = `Remove (${rcount})`; 
         btnActive[idnum] = false; 
     }
+}
+
+function removeToDo() {
+    const rb = document.getElementById('removebutton'); 
+    const lA = document.getElementsByClassName('listA');
+    const bA = document.getElementsByClassName('checkerA');  
+    const Alength = lA.length; 
+    for (let i = 0; i < Alength; i++) {
+        lA[0].remove(); 
+        bA[0].remove(); 
+    }
+    rcount = 0; 
+    rb.innerHTML = `Remove (${rcount})`; 
 }

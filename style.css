@@ -41,7 +41,7 @@ body {
     border-radius: 5px; 
     border-width: 1px;
     height: 68px; 
-    width: 810px; 
+    width: 710px; 
     top: 10px; 
     left: 20px; 
     font-size: 30px; 
@@ -65,6 +65,25 @@ body {
 }
 #addbutton:hover {
     background-color: #54c6ff;
+    color: aliceblue;
+}
+#removebutton {
+    position: relative; 
+    left: 60px;
+    top: -4px; 
+    width: 75px; 
+    height: 70px; 
+    padding: 0; 
+    margin: 0 0 0 10px; 
+    border-width: 1px;
+    border-radius: 5px; 
+    letter-spacing: 1px;
+    font-weight: bold; 
+    background-color:aliceblue; 
+    transition-duration: 0.4s;
+}
+#removebutton:hover {
+    background-color: #ff546b;
     color: aliceblue;
 }
 #line {
