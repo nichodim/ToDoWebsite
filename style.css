@@ -88,12 +88,21 @@ body {
     margin-left: 10px; 
     padding-left: 0px; 
 }
-.list {
+
+.listUA {
     font-size: 30px; 
     margin: 15px 0px 15px 0px;  
     list-style: none; 
+    color:black;
 }
-.checker {
+.listA {
+    font-size: 30px; 
+    margin: 15px 0px 15px 0px;  
+    list-style: none; 
+    color:#54c6ff; 
+}
+
+.checkerUA {
     position: relative; 
     margin: 8.7px 8.75px 24px 8.75px; 
     width: 17.5px; 
@@ -103,7 +112,19 @@ body {
     background-color:aliceblue; 
     transition-duration: 0.4s;
 }
-.checker:hover {
-    background-color: #b6e7ff;
-    color: aliceblue;
+.checkerUA:hover {
+    background-color:#b6e7ff;
+}
+.checkerA {
+    position: relative; 
+    margin: 8.7px 8.75px 24px 8.75px; 
+    width: 17.5px; 
+    height: 17.5px; 
+    border-radius: 10px; 
+    border-width: 1px;
+    background-color:#54c6ff; 
+    transition-duration: 0.4s;
+}
+.checkerA:hover {
+    background-color:#b6e7ff;
 }

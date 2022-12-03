@@ -1,3 +1,12 @@
+function textEnter() {
+    const textbox = document.getElementById("textbox");
+    textbox.addEventListener("keypress", function onEvent(event) {
+    if (event.key === "Enter") {
+        document.getElementById("addbutton").click();
+    }
+    });
+}
+
 function createToDo() {
     const txt = document.getElementById('textbox'); 
     const l = document.createElement('li');
@@ -11,10 +20,10 @@ function createToDo() {
     }
 
     l.textContent = txt.value; 
-    l.setAttribute('class', 'list'); 
+    l.setAttribute('class', 'listUA'); 
 
     b.setAttribute('onclick', `checkerClicked(${id})`); 
-    b.setAttribute('class', 'checker'); 
+    b.setAttribute('class', 'checkerUA'); 
 
     l.setAttribute('id', `l${id}`); 
     b.setAttribute('id', `b${id}`); 
@@ -32,13 +41,13 @@ function checkerClicked(idnum) {
     const l = document.getElementById(`l${idnum}`); 
 
     if (btnActive[idnum] !== true) {
-        l.style.color = '#54c6ff'; 
-        b.style.backgroundColor = '#54c6ff'; 
+        b.className = 'checkerA'; 
+        l.className = 'listA'; 
         btnActive[idnum] = true; 
     }
     else {
-        l.style.color = 'black'; 
-        b.style.backgroundColor = 'aliceblue'; 
+        b.className = 'checkerUA'; 
+        l.className = 'listUA'; 
         btnActive[idnum] = false; 
     }
 }
