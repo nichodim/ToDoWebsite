@@ -29,11 +29,20 @@ function createToDo() {
     b.setAttribute('id', `b${id}`); 
 
     btnActive.push(false); 
-    id++; 
 
     document.getElementById("myList").appendChild(l); 
     document.getElementById("buttondiv").appendChild(b); 
     txt.value = "";
+
+    if (id == 1) {
+        firstB(); 
+    }
+    id++; 
+}
+
+function firstB() {
+    const b = document.getElementById('b1'); 
+    b.style.marginTop = '8px'; 
 }
 
 function checkerClicked(idnum) {
