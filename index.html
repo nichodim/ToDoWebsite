@@ -20,7 +20,7 @@
                 <div id="maintop">
                     <input id="textbox" type="text"/>
                     <button onclick='createToDo()' id='addbutton'>ADD</button>
-                    <button onclick='removeToDo()' id='removebutton'>Remove (0)</button>
+                    <button onclick='removeToDo()' id='removebutton'>REMOVE (0)</button>
                 </div>
                 <div id="line"></div>
                 <div id="mainbody">
@@ -32,7 +32,11 @@
     </main>
 </body>
 <script>
+    // Declared universal variables
+    const textbox = document.getElementById("textbox");
+    const remb = document.getElementById('removebutton'); 
     let id = 0; 
+    let firstb; 
     let rcount = 0; 
     const btnActive = []; 
 
