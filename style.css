@@ -26,8 +26,17 @@ body {
     border-radius: 10px; 
     background-color:aliceblue;  
     color:black; 
-    opacity: 0.85; 
+    animation: fade 500ms ease-in 0s; 
 }
+@keyframes fade {
+    0%{
+        opacity: 0; 
+    }
+    85%{
+        opacity: 0.85; 
+    }
+}
+
 #maindiv {
     position: relative; 
     padding: 10px; 
