@@ -37,7 +37,9 @@ function createToDo() {
     document.getElementById("buttondiv").appendChild(b); 
 
     textbox.value = "";
-    firstBAdjust(1); 
+    if (id == 1) {
+        firstBAdjust(1); 
+    }
     id++; 
 }
 
