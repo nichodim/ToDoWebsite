@@ -59,14 +59,14 @@ function checkerClicked(idnum) {
         b.className = 'checkerA'; 
         l.className = 'listA'; 
         rcount++; 
-        remb.innerHTML = `REMOVE (${rcount})`; 
+        remb.innerHTML = `CLEAR (${rcount})`; 
         btnActive[idnum] = true; 
     }
     else {
         b.className = 'checkerUA'; 
         l.className = 'listUA'; 
         rcount--; 
-        remb.innerHTML = `REMOVE (${rcount})`; 
+        remb.innerHTML = `CLEAR (${rcount})`; 
         btnActive[idnum] = false; 
     }
 }
@@ -85,7 +85,7 @@ function removeToDo() {
 
     // Remove counter is reset
     rcount = 0; 
-    remb.innerHTML = `REMOVE (${rcount})`; 
+    remb.innerHTML = `CLEAR (${rcount})`; 
 
     ToDoAdjustments(); 
 }
