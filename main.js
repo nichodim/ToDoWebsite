@@ -47,7 +47,6 @@ function createToDo() {
 function firstBAdjust(idnum) {
     const b = document.getElementById(`b${idnum}`); 
     b.style.marginTop = '7.65px'; 
-    firstb = b.id; 
 }
 
 // Changes list and button after checker button is clicked

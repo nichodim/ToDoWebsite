@@ -29,10 +29,10 @@ body {
     animation: fade 500ms ease-in 0s; 
 }
 @keyframes fade {
-    0%{
+    0% {
         opacity: 0; 
     }
-    85%{
+    85% {
         opacity: 0.85; 
     }
 }
