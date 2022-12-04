@@ -34,15 +34,13 @@ function createToDo() {
     document.getElementById("buttondiv").appendChild(b); 
     txt.value = "";
 
-    if (id == 1) {
-        firstB(); 
-    }
+    firstBAdjust(1); 
     id++; 
 }
 
-function firstB() {
-    const b = document.getElementById('b1'); 
-    b.style.marginTop = '8px'; 
+function firstBAdjust(idnum) {
+    const b = document.getElementById(`b${idnum}`); 
+    b.style.marginTop = '7.65px'; 
 }
 
 function checkerClicked(idnum) {
@@ -69,12 +67,20 @@ function checkerClicked(idnum) {
 function removeToDo() {
     const rb = document.getElementById('removebutton'); 
     const lA = document.getElementsByClassName('listA');
-    const bA = document.getElementsByClassName('checkerA');  
-    const Alength = lA.length; 
-    for (let i = 0; i < Alength; i++) {
+    const bA = document.getElementsByClassName('checkerA'); 
+    const bUA = document.getElementsByClassName('checkerUA'); 
+    const bUAnums = []; 
+    const lAlength = lA.length; 
+
+    for (let i = 0; i < lAlength; i++) {
         lA[0].remove(); 
         bA[0].remove(); 
     }
+
+    for (let i = 0; i < bUA.length; i++) {
+        bUAnums.push(bUA[i].id.slice(1)); 
+    }
+    firstBAdjust(Math.min(... bUAnums)); 
     rcount = 0; 
     rb.innerHTML = `Remove (${rcount})`; 
 }
