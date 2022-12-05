@@ -1,3 +1,4 @@
+// https://nichodim.github.io/ToDoWebsite/
 // Allows enter on textbox to press the ADD button
 function textEnter() {
     textbox.addEventListener("keypress", function onEvent(event) {
@@ -15,32 +16,32 @@ function createToDo() {
     if (textbox.value === "") {
         return; 
     }
-    if (id == 0) {
-        id++; 
+    if (counters.id == 0) {
+        counters.id++; 
     }
 
     // Sets attributes for the new button and list item
     l.textContent = textbox.value; 
     l.setAttribute('class', 'listUA'); 
 
-    b.setAttribute('onclick', `checkerClicked(${id})`); 
+    b.setAttribute('onclick', `checkerClicked(${counters.id})`); 
     b.setAttribute('class', 'checkerUA'); 
 
-    l.setAttribute('id', `l${id}`); 
-    b.setAttribute('id', `b${id}`); 
+    l.setAttribute('id', `l${counters.id}`); 
+    b.setAttribute('id', `b${counters.id}`); 
 
     // Pushes to an array used to tell if a button is active
-    btnActive.push(false); 
+    counters.btnActive.push(false); 
 
     // Appends new button and list to the real world, they're all grown up ;,)
     document.getElementById("myList").appendChild(l); 
     document.getElementById("buttondiv").appendChild(b); 
 
     textbox.value = "";
-    if (id == 1) {
+    if (counters.id == 1) {
         firstBAdjust(1); 
     }
-    id++; 
+    counters.id++; 
 }
 
 // Adjusts first button to align better with list
@@ -56,19 +57,19 @@ function checkerClicked(idnum) {
 
     // Changes class of respective button and list
     // Changes remove button counter
-    if (btnActive[idnum] !== true) {
+    if (counters.btnActive[idnum] !== true) {
         b.className = 'checkerA'; 
         l.className = 'listA'; 
-        rcount++; 
-        remb.innerHTML = `CLEAR (${rcount})`; 
-        btnActive[idnum] = true; 
+        counters.rcount++; 
+        remb.innerHTML = `CLEAR (${counters.rcount})`; 
+        counters.btnActive[idnum] = true; 
     }
     else {
         b.className = 'checkerUA'; 
         l.className = 'listUA'; 
-        rcount--; 
-        remb.innerHTML = `CLEAR (${rcount})`; 
-        btnActive[idnum] = false; 
+        counters.rcount--; 
+        remb.innerHTML = `CLEAR (${counters.rcount})`; 
+        counters.btnActive[idnum] = false; 
     }
 }
 
@@ -77,16 +78,19 @@ function removeToDo() {
     const lA = document.getElementsByClassName('listA');
     const bA = document.getElementsByClassName('checkerA'); 
     const lAlength = lA.length; 
+    if (lAlength == 0) {
+        return; 
+    }
 
     // Removes each instance in checked classes
     for (let i = 0; i < lAlength; i++) {
         lA[0].remove(); 
         bA[0].remove(); 
     }
-
+    
     // Remove counter is reset
-    rcount = 0; 
-    remb.innerHTML = `CLEAR (${rcount})`; 
+    counters.rcount = 0; 
+    remb.innerHTML = `CLEAR (${counters.rcount})`; 
 
     ToDoAdjustments(); 
 }
