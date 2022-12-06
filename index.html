@@ -35,7 +35,13 @@
     // Declared universal variables
     const textbox = document.getElementById("textbox");
     const remb = document.getElementById('removebutton'); 
+    let buttons = []; 
+    let lists = []; 
     let countersSaved = JSON.parse(localStorage.getItem("counters")); 
+    let listA = JSON.parse(localStorage.getItem("listA")); 
+    let listUA = JSON.parse(localStorage.getItem("listUA")); 
+    let buttonA = JSON.parse(localStorage.getItem("buttonA")); 
+    let buttonUA = JSON.parse(localStorage.getItem("buttonUA")); 
     let counters = {
         id: 0, 
         rcount:  0, 
@@ -45,6 +51,7 @@
         counters = countersSaved; 
     }
 
+    ResetState(); 
     textEnter(); 
 </script>
 </html>

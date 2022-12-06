@@ -44,13 +44,29 @@ function createToDo() {
         ToDoAdjustments();
     }
 
-    saveObj(); 
     counters.id++; 
+    saveState(); 
 }
 
-function saveObj() {
+function saveState() {
+    saveState2(document.getElementsByClassName('checkerA')); 
+    saveState2(document.getElementsByClassName('checkerUA')); 
+    saveState2(document.getElementsByClassName('listA')); 
+    saveState2(document.getElementsByClassName('listUA')); 
+
     localStorage.setItem("counters", JSON.stringify(counters)); 
-    //JSON.parse(localStorage.getItem("counters"))
+
+}
+
+function saveState2(objname) {
+    for (let i = 0; i < objname.length; i++) {
+        localStorage.setItem(`${objname}`, JSON.stringify(objname[i])); 
+    }
+}
+
+function ResetState() {
+    document.getElementById("myList").appendChild(l);
+    document.getElementById("buttondiv").appendChild(b); 
 }
 
 // Adjusts first button to align better with list
