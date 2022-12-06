@@ -35,10 +35,14 @@
     // Declared universal variables
     const textbox = document.getElementById("textbox");
     const remb = document.getElementById('removebutton'); 
+    let countersSaved = JSON.parse(localStorage.getItem("counters")); 
     let counters = {
         id: 0, 
         rcount:  0, 
         btnActive: []
+    }
+    if (countersSaved != null) {
+        counters = countersSaved; 
     }
 
     textEnter(); 

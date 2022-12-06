@@ -40,8 +40,17 @@ function createToDo() {
     textbox.value = "";
     if (counters.id == 1) {
         firstBAdjust(1); 
+    } else {
+        ToDoAdjustments();
     }
+
+    saveObj(); 
     counters.id++; 
+}
+
+function saveObj() {
+    localStorage.setItem("counters", JSON.stringify(counters)); 
+    //JSON.parse(localStorage.getItem("counters"))
 }
 
 // Adjusts first button to align better with list
