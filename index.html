@@ -37,18 +37,23 @@
     const remb = document.getElementById('removebutton'); 
     let buttons = []; 
     let lists = []; 
+    let listArray = []; 
+    let buttonArray = []; 
     let countersSaved = JSON.parse(localStorage.getItem("counters")); 
-    let listA = JSON.parse(localStorage.getItem("listA")); 
-    let listUA = JSON.parse(localStorage.getItem("listUA")); 
-    let buttonA = JSON.parse(localStorage.getItem("buttonA")); 
-    let buttonUA = JSON.parse(localStorage.getItem("buttonUA")); 
+    //SetArray(); 
     let counters = {
-        id: 0, 
+        id: 1, 
         rcount:  0, 
         btnActive: []
     }
     if (countersSaved != null) {
         counters = countersSaved; 
+    }
+    if (localStorage.getItem('list1') != null) {
+        for (let i = 0; i < (counters.id - 1); i++) {
+            listArray.push(localStorage.getItem(`list${i + 1}`)); 
+            buttonArray.push(localStorage.getItem(`button${i + 1}`)); 
+        }
     }
 
     ResetState(); 

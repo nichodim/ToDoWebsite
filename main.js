@@ -16,9 +16,6 @@ function createToDo() {
     if (textbox.value === "") {
         return; 
     }
-    if (counters.id == 0) {
-        counters.id++; 
-    }
 
     // Sets attributes for the new button and list item
     l.textContent = textbox.value; 
@@ -49,10 +46,10 @@ function createToDo() {
 }
 
 function saveState() {
-    saveState2(document.getElementsByClassName('checkerA')); 
+    saveState2(document.getElementsByClassName('listUA')); 
     saveState2(document.getElementsByClassName('checkerUA')); 
     saveState2(document.getElementsByClassName('listA')); 
-    saveState2(document.getElementsByClassName('listUA')); 
+    saveState2(document.getElementsByClassName('checkerA')); 
 
     localStorage.setItem("counters", JSON.stringify(counters)); 
 
@@ -60,13 +57,19 @@ function saveState() {
 
 function saveState2(objname) {
     for (let i = 0; i < objname.length; i++) {
-        localStorage.setItem(`${objname}`, JSON.stringify(objname[i])); 
+        if (objname[i].className.slice(0, 4) == 'list') {
+            localStorage.setItem(`list${i + 1}`, objname[i].outerHTML); 
+        } else {
+            localStorage.setItem(`button${i + 1}`, objname[i].outerHTML); 
+        }
     }
 }
 
 function ResetState() {
-    document.getElementById("myList").appendChild(l);
-    document.getElementById("buttondiv").appendChild(b); 
+    for (let i = 0; i < listArray.length; i++) {
+        document.getElementById("myList").append(JSON.parse(localStorage.getItem(`list${i + 1}`)));
+        document.getElementById("buttondiv").append(JSON.parse(localStorage.getItem(`button${i + 1}`)));
+    }
 }
 
 // Adjusts first button to align better with list
