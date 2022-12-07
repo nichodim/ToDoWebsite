@@ -57,6 +57,11 @@ function saveState() {
 
 function saveState2(objname) {
     for (let i = 0; i < objname.length; i++) {
+        if (ignoreThese[i] == (i + 1)) {
+            localStorage.removeItem(`list${i + 1}`); 
+            localStorage.removeItem(`button${i + 1}`); 
+            return; 
+        }
         if (objname[i].className.slice(0, 4) == 'list') {
             lists.id = objname[i].id; 
             lists.class = objname[i].className; 
@@ -76,6 +81,12 @@ function ResetState() {
         const b = document.createElement('button'); 
         const lSaved = JSON.parse(localStorage.getItem(`list${i + 1}`))
         const bSaved = JSON.parse(localStorage.getItem(`button${i + 1}`))
+
+        if (ignoreThese[i + 1] != null) {
+            if (ignoreThese[i + 1].ignore) {
+                return; 
+            }
+        }
 
         l.textContent = lSaved.text; 
         l.setAttribute('class', lSaved.class); 
@@ -121,6 +132,7 @@ function checkerClicked(idnum) {
         remb.innerHTML = `CLEAR (${counters.rcount})`; 
         counters.btnActive[idnum] = false; 
     }
+    saveState(); 
 }
 
 // Removes list and button if checked when remove button is clicked
@@ -134,6 +146,7 @@ function removeToDo() {
 
     // Removes each instance in checked classes
     for (let i = 0; i < lAlength; i++) {
+        ignoreThese.push(lA[i].id); 
         lA[0].remove(); 
         bA[0].remove(); 
     }
@@ -143,6 +156,7 @@ function removeToDo() {
     remb.innerHTML = `CLEAR (${counters.rcount})`; 
 
     ToDoAdjustments(); 
+    saveState(); 
 }
 
 // Due to the previous id1 button often being deleted, a new

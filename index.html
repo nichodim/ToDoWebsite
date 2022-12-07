@@ -36,14 +36,17 @@
     const textbox = document.getElementById("textbox");
     const remb = document.getElementById('removebutton'); 
 
+    let ignoreThese = []; 
     let lists = {
         id: 0, 
         class: '', 
-        text: ''
+        text: '', 
+        ignore: false
     }
     let buttons = {
         id: 0, 
-        class: ''
+        class: '', 
+        ignore: false
     }
     let listArray = []; 
     let buttonArray = []; 
