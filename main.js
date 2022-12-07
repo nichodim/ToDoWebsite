@@ -58,17 +58,39 @@ function saveState() {
 function saveState2(objname) {
     for (let i = 0; i < objname.length; i++) {
         if (objname[i].className.slice(0, 4) == 'list') {
-            localStorage.setItem(`list${i + 1}`, objname[i].outerHTML); 
+            lists.id = objname[i].id; 
+            lists.class = objname[i].className; 
+            lists.text = objname[i].innerHTML; 
+            localStorage.setItem(`list${i + 1}`, JSON.stringify(lists)); 
         } else {
-            localStorage.setItem(`button${i + 1}`, objname[i].outerHTML); 
+            buttons.id = objname[i].id; 
+            buttons.class = objname[i].className; 
+            localStorage.setItem(`button${i + 1}`, JSON.stringify(buttons)); 
         }
     }
 }
 
 function ResetState() {
     for (let i = 0; i < listArray.length; i++) {
-        document.getElementById("myList").append(JSON.parse(localStorage.getItem(`list${i + 1}`)));
-        document.getElementById("buttondiv").append(JSON.parse(localStorage.getItem(`button${i + 1}`)));
+        const l = document.createElement('li');
+        const b = document.createElement('button'); 
+        const lSaved = JSON.parse(localStorage.getItem(`list${i + 1}`))
+        const bSaved = JSON.parse(localStorage.getItem(`button${i + 1}`))
+
+        l.textContent = lSaved.text; 
+        l.setAttribute('class', lSaved.class); 
+
+        b.setAttribute('onclick', `checkerClicked(${i + 1})`); 
+        b.setAttribute('class', bSaved.class); 
+
+        l.setAttribute('id', lSaved.id); 
+        b.setAttribute('id', bSaved.id); 
+
+        document.getElementById("myList").appendChild(l); 
+        document.getElementById("buttondiv").appendChild(b); 
+
+        //document.getElementById("myList").append(JSON.parse(localStorage.getItem(`list${i + 1}`)));
+        //document.getElementById("buttondiv").append(JSON.parse(localStorage.getItem(`button${i + 1}`)));
     }
 }
 

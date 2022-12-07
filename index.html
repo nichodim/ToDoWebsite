@@ -35,12 +35,20 @@
     // Declared universal variables
     const textbox = document.getElementById("textbox");
     const remb = document.getElementById('removebutton'); 
-    let buttons = []; 
-    let lists = []; 
+
+    let lists = {
+        id: 0, 
+        class: '', 
+        text: ''
+    }
+    let buttons = {
+        id: 0, 
+        class: ''
+    }
     let listArray = []; 
     let buttonArray = []; 
+
     let countersSaved = JSON.parse(localStorage.getItem("counters")); 
-    //SetArray(); 
     let counters = {
         id: 1, 
         rcount:  0, 
@@ -49,6 +57,7 @@
     if (countersSaved != null) {
         counters = countersSaved; 
     }
+
     if (localStorage.getItem('list1') != null) {
         for (let i = 0; i < (counters.id - 1); i++) {
             listArray.push(localStorage.getItem(`list${i + 1}`)); 
