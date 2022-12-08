@@ -60,13 +60,6 @@ function saveState() {
 function saveStateHTML(objname) {
     // Recreate id with i in order to process every todo item
     for (let i = 0; i < objname.length; i++) {
-        // Remove deleted todo items from localstorage if detected
-        if (ignoreThese[i] == (i + 1)) {
-            localStorage.removeItem(`list${i + 1}`); 
-            localStorage.removeItem(`button${i + 1}`); 
-            return; 
-        }
-
         // Set placeholder object's variables to match important todo info
         // Save the object with set variables with proper id number
 
@@ -75,13 +68,13 @@ function saveStateHTML(objname) {
             lists.id = objname[i].id; 
             lists.class = objname[i].className; 
             lists.text = objname[i].innerHTML; 
-            localStorage.setItem(`list${i + 1}`, JSON.stringify(lists)); 
+            localStorage.setItem(`list${lists.id.slice(1)}`, JSON.stringify(lists)); 
         } 
         // If button item
         else {
             buttons.id = objname[i].id; 
             buttons.class = objname[i].className; 
-            localStorage.setItem(`button${i + 1}`, JSON.stringify(buttons)); 
+            localStorage.setItem(`button${lists.id.slice(1)}`, JSON.stringify(buttons)); 
         }
     }
 }
@@ -95,8 +88,13 @@ function ResetState() {
         const lSaved = JSON.parse(localStorage.getItem(`list${i + 1}`))
         const bSaved = JSON.parse(localStorage.getItem(`button${i + 1}`))
 
+        // Pipeline to set new element to old element and append
+
         // If todo marked true in ignoreThese, skip
-        if (ignoreThese[i + 1] == null || !ignoreThese[i + 1].ignore) {
+        console.log("array: " + ignoreThese); 
+        console.log('id value: ' + (i + 1)); 
+        console.log('condition value: ' + ignoreThese.find(element => element == (i + 1))); 
+        if (ignoreThese.find(element => element == (i + 1)) == undefined) {
             // Pipeline to set new element to old element and append
             l.textContent = lSaved.text; 
             l.setAttribute('class', lSaved.class); 
@@ -110,9 +108,6 @@ function ResetState() {
             document.getElementById("myList").appendChild(l); 
             document.getElementById("buttondiv").appendChild(b); 
         }
-
-        //document.getElementById("myList").append(JSON.parse(localStorage.getItem(`list${i + 1}`)));
-        //document.getElementById("buttondiv").append(JSON.parse(localStorage.getItem(`button${i + 1}`)));
     }
 }
 
@@ -157,7 +152,7 @@ function removeToDo() {
 
     // Removes each instance in checked classes
     for (let i = 0; i < lAlength; i++) {
-        ignoreThese.push(lA[i].id); 
+        ignoreThese.push(lA[i].id.slice(1)); 
         lA[0].remove(); 
         bA[0].remove(); 
     }
@@ -167,7 +162,19 @@ function removeToDo() {
     remb.innerHTML = `CLEAR (${counters.rcount})`; 
 
     ToDoAdjustments(); 
+    cleanStorage(); 
     saveState(); 
+}
+
+function cleanStorage() {
+    for (let i = 0; i < listArray.length; i++) {
+        if (ignoreThese != null) {
+            if (ignoreThese.find(element => element == (i + 1)) != undefined) {
+                localStorage.removeItem(`list${i + 1}`); 
+                localStorage.removeItem(`button${i + 1}`); 
+            }
+        }
+    }
 }
 
 // Due to the previous id1 button often being deleted, a new
