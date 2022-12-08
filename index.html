@@ -36,6 +36,7 @@
     const textbox = document.getElementById("textbox");
     const remb = document.getElementById('removebutton'); 
 
+    // Html element savestate variables
     let ignoreThese = []; 
     let lists = {
         id: 0, 
@@ -51,6 +52,7 @@
     let listArray = []; 
     let buttonArray = []; 
 
+    // Counter savestate variables
     let countersSaved = JSON.parse(localStorage.getItem("counters")); 
     let counters = {
         id: 1, 
@@ -61,6 +63,7 @@
         counters = countersSaved; 
     }
 
+    // Load arrays with existing localstorage to create counter of total local storage
     if (localStorage.getItem('list1') != null) {
         for (let i = 0; i < (counters.id - 1); i++) {
             listArray.push(localStorage.getItem(`list${i + 1}`)); 
