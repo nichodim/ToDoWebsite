@@ -1,3 +1,4 @@
+// Website link
 // https://nichodim.github.io/ToDoWebsite/
 
 // Creates a new instance of a todo item
@@ -48,7 +49,7 @@ function removeToDo() {
 
     // Removes each instance in checked classes
     for (let i = 0; i < lAlength; i++) {
-        ignoreThese.push(lA[i].id.slice(1)); 
+        counters.ignoreThese.push(lA[i].id.slice(1)); 
         lA[0].remove(); 
         bA[0].remove(); 
     }

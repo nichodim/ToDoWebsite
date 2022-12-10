@@ -38,7 +38,6 @@
     const remb = document.getElementById('removebutton'); 
 
     // Html element savestate variables
-    let ignoreThese = []; 
     let lists = {
         id: 0, 
         class: '', 
@@ -58,7 +57,8 @@
     let counters = {
         id: 1, 
         rcount:  0, 
-        btnActive: []
+        btnActive: [], 
+        ignoreThese: []
     }
     if (countersSaved != null) {
         counters = countersSaved; 

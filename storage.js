@@ -44,10 +44,10 @@ function ResetState() {
         // Pipeline to set new element to old element and append
 
         // If todo marked true in ignoreThese, skip
-        console.log("array: " + ignoreThese); 
+        console.log("array: " + counters.ignoreThese); 
         console.log('id value: ' + (i + 1)); 
-        console.log('condition value: ' + ignoreThese.find(element => element == (i + 1))); 
-        if (ignoreThese.find(element => element == (i + 1)) == undefined) {
+        console.log('condition value: ' + counters.ignoreThese.find(element => element == (i + 1))); 
+        if (counters.ignoreThese.find(element => element == (i + 1)) == undefined) {
             // Pipeline to set new element to old element and append
             l.textContent = lSaved.text; 
             l.setAttribute('class', lSaved.class); 
@@ -66,8 +66,8 @@ function ResetState() {
 
 function cleanStorage() {
     for (let i = 0; i < listArray.length; i++) {
-        if (ignoreThese != null) {
-            if (ignoreThese.find(element => element == (i + 1)) != undefined) {
+        if (counters.ignoreThese != []) {
+            if (counters.ignoreThese.find(element => element == (i + 1)) != undefined) {
                 localStorage.removeItem(`list${i + 1}`); 
                 localStorage.removeItem(`button${i + 1}`); 
             }
