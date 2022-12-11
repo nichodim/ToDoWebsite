@@ -7,7 +7,6 @@ function saveState() {
 
     // Save current state of counters into localstorage
     localStorage.setItem("counters", JSON.stringify(counters)); 
-
 }
 
 function saveStateHTML(objname) {
