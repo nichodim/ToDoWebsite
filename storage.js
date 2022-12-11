@@ -10,11 +10,14 @@ function saveState() {
 }
 
 function saveStateHTML(objname) {
+    if (objname == null) {
+        return; 
+    }
     // Recreate id with i in order to process every todo item
     for (let i = 0; i < objname.length; i++) {
         // Set placeholder object's variables to match important todo info
         // Save the object with set variables with proper id number
-
+        
         // If list item
         if (objname[i].className.slice(0, 4) == 'list') {
             lists.id = objname[i].id; 

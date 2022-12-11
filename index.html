@@ -42,12 +42,10 @@
         id: 0, 
         class: '', 
         text: '', 
-        ignore: false
     }
     let buttons = {
         id: 0, 
         class: '', 
-        ignore: false
     }
     let listArray = []; 
     let buttonArray = []; 
@@ -62,6 +60,7 @@
     }
     if (countersSaved != null) {
         counters = countersSaved; 
+        remb.innerHTML = `CLEAR (${counters.rcount})`;
     }
 
     // Load arrays with existing localstorage to create counter of total local storage

@@ -6,7 +6,7 @@ function createToDo() {
     const l = document.createElement('li');
     const b = document.createElement('button'); 
 
-    if (textbox.value === "") {
+    if (textbox.value == "") {
         return; 
     }
 
@@ -42,6 +42,7 @@ function createToDo() {
 function removeToDo() {
     const lA = document.getElementsByClassName('listA');
     const bA = document.getElementsByClassName('checkerA'); 
+    const lUA = document.getElementsByClassName('listUA'); 
     const lAlength = lA.length; 
     if (lAlength == 0) {
         return; 
@@ -58,8 +59,8 @@ function removeToDo() {
     counters.rcount = 0; 
     remb.innerHTML = `CLEAR (${counters.rcount})`; 
 
-    ToDoAdjustments(); 
     cleanStorage(); 
+    ToDoAdjustments(); 
     saveState(); 
 }
 
@@ -67,22 +68,23 @@ function removeToDo() {
 function checkerClicked(idnum) {
     const b = document.getElementById(`b${idnum}`); 
     const l = document.getElementById(`l${idnum}`); 
+    const listnum = idnum - 1; 
 
     // Changes class of respective button and list
     // Changes remove button counter
-    if (counters.btnActive[idnum] !== true) {
+    if (counters.btnActive[listnum] !== true) {
         b.className = 'checkerA'; 
         l.className = 'listA'; 
         counters.rcount++; 
         remb.innerHTML = `CLEAR (${counters.rcount})`; 
-        counters.btnActive[idnum] = true; 
+        counters.btnActive[listnum] = true; 
     }
     else {
         b.className = 'checkerUA'; 
         l.className = 'listUA'; 
         counters.rcount--; 
         remb.innerHTML = `CLEAR (${counters.rcount})`; 
-        counters.btnActive[idnum] = false; 
+        counters.btnActive[listnum] = false; 
     }
     saveState(); 
 }
@@ -90,7 +92,7 @@ function checkerClicked(idnum) {
 // Allows enter on textbox to press the ADD button
 function textEnter() {
     textbox.addEventListener("keypress", function onEvent(event) {
-    if (event.key === "Enter") {
+    if (event.key == "Enter") {
         document.getElementById("addbutton").click();
     }
     });
@@ -107,6 +109,9 @@ function firstBAdjust(idnum) {
 // Definitely a better way to do this
 function ToDoAdjustments() {
     const bUA = document.getElementsByClassName('checkerUA'); 
+    if (Object.keys(bUA) == 0) {
+        return; 
+    }
     const bUAnums = []; 
 
     for (let i = 0; i < bUA.length; i++) {
