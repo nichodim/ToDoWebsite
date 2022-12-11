@@ -109,7 +109,7 @@ function firstBAdjust(idnum) {
 // Definitely a better way to do this
 function ToDoAdjustments() {
     const bUA = document.getElementsByClassName('checkerUA'); 
-    if (Object.keys(bUA) == 0) {
+    if (Object.keys(bUA) == null) {
         return; 
     }
     const bUAnums = []; 
