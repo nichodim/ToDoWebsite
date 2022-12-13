@@ -4,7 +4,6 @@ function saveState() {
     saveStateHTML(document.getElementsByClassName('checkerUA')); 
     saveStateHTML(document.getElementsByClassName('listA')); 
     saveStateHTML(document.getElementsByClassName('checkerA')); 
-    // console.log('-----------------------------------------'); 
 
     // Save current state of counters into localstorage
     localStorage.setItem("counters", JSON.stringify(counters)); 
@@ -29,11 +28,8 @@ function saveStateHTML(objname) {
         // If button item
         else {
             buttons.id = objname[i].id; 
-            // console.log('Checker ' + objname[i].id + ': ' + objname[i].className); 
             buttons.class = objname[i].className; 
-            // console.log('Checker ' + buttons.id + ': ' + buttons.class); 
             localStorage.setItem(`button${buttons.id.slice(1)}`, JSON.stringify(buttons)); 
-            // console.log(`Saved button id: button${buttons.id.slice(1)}`); 
         }
     }
 }
@@ -52,9 +48,7 @@ function ResetState() {
         // Pipeline to set new element to old element and append
 
         // If todo id is marked in ignoreThese, skip
-        // console.log("array: " + counters.ignoreThese); 
-        // console.log('id value: ' + (i + 1)); 
-        // console.log('condition value: ' + counters.ignoreThese.find(element => element == (i + 1))); 
+        // if i + comp value has been used for instantiation before, skip
         if (counters.ignoreThese.find(element => element == (i + icompensator)) == undefined && createdIDs.find(element => element == (i + icompensator)) == undefined) {
             l.textContent = lSaved.text; 
             l.setAttribute('class', lSaved.class); 
@@ -70,15 +64,17 @@ function ResetState() {
             createdIDs.push(i + icompensator); 
             icompensator = 1; 
         } else {
+            // Keep number of interations necessary but add to comp value to find next list item in storage
             i--; 
             icompensator++; 
         }
     }
 }
 
+// Run through local storage and delete any that are marked by ignoreThese
 function cleanStorage() {
-    for (let i = 0; i < listArray.length; i++) {
-        if (counters.ignoreThese != []) {
+    if (counters.ignoreThese != []) {
+        for (let i = 0; i < listArray.length; i++) {
             if (counters.ignoreThese.find(element => element == (i + 1)) != undefined) {
                 localStorage.removeItem(`list${i + 1}`); 
                 localStorage.removeItem(`button${i + 1}`); 

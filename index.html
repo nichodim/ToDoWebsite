@@ -63,14 +63,13 @@
         remb.innerHTML = `CLEAR (${counters.rcount})`;
     }
 
-    // Load arrays with existing localstorage to create counter of total local storage
+    // Load arrays with existing localstorage to create counter of total local storage items
     for (let i = 0; i < (counters.id - 1); i++) {
         if (localStorage.getItem(`list${i + 1}`) != null) {
             listArray.push(localStorage.getItem(`list${i + 1}`)); 
             buttonArray.push(localStorage.getItem(`button${i + 1}`)); 
         }
     }
-    console.log(listArray.length); 
 
     ResetState(); 
     textEnter(); 
