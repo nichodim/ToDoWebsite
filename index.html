@@ -19,7 +19,7 @@
         <section id="main">
             <div id="maindiv">
                 <div id="maintop">
-                    <input id="textbox" type="text"/>
+                    <input id="textbox" type="text" autofocus/>
                     <button onclick='createToDo()' id='addbutton'>ADD</button>
                     <button onclick='removeToDo()' id='removebutton'>CLEAR (0)</button>
                 </div>
@@ -64,12 +64,13 @@
     }
 
     // Load arrays with existing localstorage to create counter of total local storage
-    if (localStorage.getItem('list1') != null) {
-        for (let i = 0; i < (counters.id - 1); i++) {
+    for (let i = 0; i < (counters.id - 1); i++) {
+        if (localStorage.getItem(`list${i + 1}`) != null) {
             listArray.push(localStorage.getItem(`list${i + 1}`)); 
             buttonArray.push(localStorage.getItem(`button${i + 1}`)); 
         }
     }
+    console.log(listArray.length); 
 
     ResetState(); 
     textEnter(); 
