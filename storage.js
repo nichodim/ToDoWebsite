@@ -45,9 +45,7 @@ function ResetState() {
         const bSaved = JSON.parse(localStorage.getItem(`button${memItemIDs[i]}`))
 
         // Pipeline to set new element to old element and append
-
-        // If todo id is marked in ignoreThese, skip
-        // if i + comp value has been used for instantiation before, skip
+        // If memory todo id is marked in ignoreThese, skip
         if (counters.ignoreThese.find(element => element == memItemIDs[i]) == undefined) {
             l.textContent = lSaved.text; 
             l.setAttribute('class', lSaved.class); 
@@ -64,7 +62,6 @@ function ResetState() {
     }
 }
 
-// UTTER DISASTER
 // Run through local storage and delete any that are marked by ignoreThese
 function cleanStorage() {
     for (let i = 0; i < memItemIDs.length; i++) {
@@ -75,6 +72,8 @@ function cleanStorage() {
     }
 }
 
+// Send all existing item ids in local storage to an array
+// Used for future resetstate
 function refreshMemList() {
     for (let i = 0; i < (counters.id - 1); i++) {
         if (localStorage.getItem(`list${i + 1}`) != null) {
