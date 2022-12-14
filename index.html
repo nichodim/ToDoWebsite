@@ -47,8 +47,7 @@
         id: 0, 
         class: '', 
     }
-    let listArray = []; 
-    let buttonArray = []; 
+    let memItemIDs = []; 
 
     // Counter savestate variables
     let countersSaved = JSON.parse(localStorage.getItem("counters")); 
@@ -63,13 +62,9 @@
         remb.innerHTML = `CLEAR (${counters.rcount})`;
     }
 
-    // Load arrays with existing localstorage to create counter of total local storage items
-    for (let i = 0; i < (counters.id - 1); i++) {
-        if (localStorage.getItem(`list${i + 1}`) != null) {
-            listArray.push(localStorage.getItem(`list${i + 1}`)); 
-            buttonArray.push(localStorage.getItem(`button${i + 1}`)); 
-        }
-    }
+    // Send all existing item ids in local storage to an array
+    // Used for future resetstate
+    refreshMemList()
 
     ResetState(); 
     textEnter(); 
