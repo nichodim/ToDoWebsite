@@ -42,7 +42,6 @@ function createToDo() {
 function removeToDo() {
     const lA = document.getElementsByClassName('listA');
     const bA = document.getElementsByClassName('checkerA'); 
-    const lUA = document.getElementsByClassName('listUA'); 
     const lAlength = lA.length; 
     if (lAlength == 0) {
         return; 

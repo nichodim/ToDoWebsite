@@ -49,7 +49,7 @@ function ResetState() {
 
         // If todo id is marked in ignoreThese, skip
         // if i + comp value has been used for instantiation before, skip
-        if (counters.ignoreThese.find(element => element == (i + icompensator)) == undefined && createdIDs.find(element => element == (i + icompensator)) == undefined) {
+        if ((counters.ignoreThese.find(element => element == (i + icompensator)) == undefined) && (createdIDs.find(element => element == (i + icompensator)) == undefined)) {
             l.textContent = lSaved.text; 
             l.setAttribute('class', lSaved.class); 
 
@@ -71,13 +71,24 @@ function ResetState() {
     }
 }
 
+// UTTER DISASTER
 // Run through local storage and delete any that are marked by ignoreThese
 function cleanStorage() {
+    let icompensator = 1; 
+    const removedIDs = []; 
     if (counters.ignoreThese != []) {
         for (let i = 0; i < listArray.length; i++) {
-            if (counters.ignoreThese.find(element => element == (i + 1)) != undefined) {
-                localStorage.removeItem(`list${i + 1}`); 
-                localStorage.removeItem(`button${i + 1}`); 
+            if ((counters.ignoreThese.find(element => element == (i + icompensator)) != undefined) && (removedIDs.find(element => element == (i + icompensator)) == undefined) && (localStorage.getItem(`list${i + icompensator}`) != null)) {
+                localStorage.removeItem(`list${i + icompensator}`); 
+                localStorage.removeItem(`button${i + icompensator}`); 
+                removedIDs.push(i + icompensator); 
+                icompensator = 1; 
+                console.log(i + icompensator); 
+                alert('ran'); 
+            } else {
+                i--; 
+                icompensator++; 
+                console.log('else'); 
             }
         }
     }
