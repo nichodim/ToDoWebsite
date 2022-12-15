@@ -113,8 +113,10 @@ function ToDoAdjustments() {
     }
     const bUAnums = []; 
 
+    // Pushes all id numbers from existing buttons into array
     for (let i = 0; i < bUA.length; i++) {
         bUAnums.push(bUA[i].id.slice(1)); 
     }
+    //Sends smallest number in array to adjust position
     firstBAdjust(Math.min(... bUAnums)); 
 }
