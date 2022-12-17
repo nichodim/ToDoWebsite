@@ -42,13 +42,12 @@ function createToDo() {
 function removeToDo() {
     const lA = document.getElementsByClassName('listA');
     const bA = document.getElementsByClassName('checkerA'); 
-    const lAlength = lA.length; 
-    if (lAlength == 0) {
+    if (lA.length == 0) {
         return; 
     }
 
     // Removes each instance in checked classes
-    for (let i = 0; i < lAlength; i++) {
+    for (let i = 0; i < lA.length; i++) {
         counters.ignoreThese.push(lA[0].id.slice(1)); 
         lA[0].remove(); 
         bA[0].remove(); 
