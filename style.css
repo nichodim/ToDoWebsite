@@ -21,7 +21,7 @@ body {
     position: relative; 
     margin: 0px auto 100px auto; 
     min-height: 70vh; 
-    width: 1000px; 
+    max-width: 1000px; 
     height: auto; 
     border-radius: 10px; 
     background-color:aliceblue;  
@@ -34,6 +34,14 @@ body {
     }
     85% {
         opacity: 0.85; 
+    }
+}
+@media only screen and (max-width: 1000px) {
+    #main {
+        margin-left: 0px; 
+        margin-right: 0px; 
+        border-radius: 0px; 
+        width: 100%; 
     }
 }
 
@@ -50,7 +58,7 @@ body {
     border-radius: 5px; 
     border-width: 1px;
     height: 68px; 
-    width: 710px; 
+    width: 710px;
     top: 10px; 
     left: 20px; 
     font-size: 30px; 
@@ -115,6 +123,7 @@ body {
     left: 50px; 
     margin-left: 10px; 
     padding-left: 0px; 
+    max-width: 90%; 
 }
 
 .listUA {
