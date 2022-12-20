@@ -4,6 +4,8 @@
 // Creates a new instance of a todo item
 function createToDo() {
     const d = document.createElement('div'); 
+    const bd = document.createElement('div'); 
+    const ld = document.createElement('div'); 
     const l = document.createElement('p');
     const b = document.createElement('button'); 
 
@@ -13,6 +15,8 @@ function createToDo() {
 
     // Sets attributes for the new button and list item
     d.setAttribute('class', 'tododiv'); 
+    bd.setAttribute('class', 'buttondiv'); 
+    ld.setAttribute('class', 'listdiv'); 
 
     l.textContent = textbox.value; 
     l.setAttribute('class', 'listUA'); 
@@ -28,8 +32,10 @@ function createToDo() {
 
     // Appends new button and list to the real world, they're all grown up ;,)
     document.getElementById("mainbody").append(d); 
-    d.appendChild(b); 
-    d.appendChild(l); 
+    d.append(bd); 
+    d.append(ld); 
+    bd.appendChild(b); 
+    ld.appendChild(l); 
 
     textbox.value = "";
 

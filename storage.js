@@ -40,6 +40,8 @@ function ResetState() {
     // for every existing todo item in local storage...
     for (let i = 0; i < memItemIDs.length; i++) {
         const d = document.createElement('div'); 
+        const bd = document.createElement('div'); 
+        const ld = document.createElement('div'); 
         const l = document.createElement('p');
         const b = document.createElement('button'); 
         const lSaved = JSON.parse(localStorage.getItem(`list${memItemIDs[i]}`))
@@ -49,6 +51,8 @@ function ResetState() {
         // If memory todo id is marked in ignoreThese, skip
         if (counters.ignoreThese.find(element => element == memItemIDs[i]) == undefined) {
             d.setAttribute('class', 'tododiv'); 
+            bd.setAttribute('class', 'buttondiv'); 
+            ld.setAttribute('class', 'listdiv'); 
 
             l.textContent = lSaved.text; 
             l.setAttribute('class', lSaved.class); 
@@ -60,8 +64,10 @@ function ResetState() {
             b.setAttribute('id', bSaved.id); 
 
             document.getElementById("mainbody").append(d); 
-            d.appendChild(b); 
-            d.appendChild(l); 
+            d.append(bd); 
+            d.append(ld); 
+            bd.appendChild(b); 
+            ld.appendChild(l); 
         }
     }
 }

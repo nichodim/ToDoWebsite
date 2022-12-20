@@ -109,11 +109,21 @@ body {
     background-color: black; 
 }
 #mainbody {
-    position: relative;
-    height: auto; 
+    display: flex;
+    flex-direction: column;
 }
 .tododiv {
     margin: 0px 10px 0px 20px; 
+    display: flex;
+    flex-direction: row;
+}
+.buttondiv {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+.listdiv {
+
 }
 
 .listUA {
