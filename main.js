@@ -3,7 +3,8 @@
 
 // Creates a new instance of a todo item
 function createToDo() {
-    const l = document.createElement('li');
+    const d = document.createElement('div'); 
+    const l = document.createElement('p');
     const b = document.createElement('button'); 
 
     if (textbox.value == "") {
@@ -11,6 +12,8 @@ function createToDo() {
     }
 
     // Sets attributes for the new button and list item
+    d.setAttribute('class', 'tododiv'); 
+
     l.textContent = textbox.value; 
     l.setAttribute('class', 'listUA'); 
 
@@ -24,15 +27,16 @@ function createToDo() {
     counters.btnActive.push(false); 
 
     // Appends new button and list to the real world, they're all grown up ;,)
-    document.getElementById("myList").appendChild(l); 
-    document.getElementById("buttondiv").appendChild(b); 
+    document.getElementById("mainbody").append(d); 
+    d.appendChild(b); 
+    d.appendChild(l); 
 
     textbox.value = "";
-    if (counters.id == 1) {
+    /*if (counters.id == 1) {
         firstBAdjust(1); 
     } else {
         ToDoAdjustments();
-    }
+    }*/
 
     counters.id++; 
     saveState(); 
@@ -95,7 +99,7 @@ function textEnter() {
     }
     });
 }
-
+/*
 // Adjusts first button to align better with list
 function firstBAdjust(idnum) {
     const b = document.getElementById(`b${idnum}`); 
@@ -118,4 +122,4 @@ function ToDoAdjustments() {
     }
     //Sends smallest number in array to adjust position
     firstBAdjust(Math.min(... bUAnums)); 
-}
+}*/

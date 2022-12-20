@@ -39,7 +39,8 @@ function saveStateHTML(objname) {
 function ResetState() {
     // for every existing todo item in local storage...
     for (let i = 0; i < memItemIDs.length; i++) {
-        const l = document.createElement('li');
+        const d = document.createElement('div'); 
+        const l = document.createElement('p');
         const b = document.createElement('button'); 
         const lSaved = JSON.parse(localStorage.getItem(`list${memItemIDs[i]}`))
         const bSaved = JSON.parse(localStorage.getItem(`button${memItemIDs[i]}`))
@@ -47,6 +48,8 @@ function ResetState() {
         // Pipeline to set new element to old element and append
         // If memory todo id is marked in ignoreThese, skip
         if (counters.ignoreThese.find(element => element == memItemIDs[i]) == undefined) {
+            d.setAttribute('class', 'tododiv'); 
+
             l.textContent = lSaved.text; 
             l.setAttribute('class', lSaved.class); 
 
@@ -56,8 +59,9 @@ function ResetState() {
             l.setAttribute('id', lSaved.id); 
             b.setAttribute('id', bSaved.id); 
 
-            document.getElementById("myList").appendChild(l); 
-            document.getElementById("buttondiv").appendChild(b);  
+            document.getElementById("mainbody").append(d); 
+            d.appendChild(b); 
+            d.appendChild(l);  
         }
     }
 }
