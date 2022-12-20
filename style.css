@@ -115,19 +115,6 @@ body {
 .tododiv {
     margin: 0px 10px 0px 20px; 
 }
-#buttondiv { 
-    position: absolute; 
-    min-height: 35px; 
-    width: 35px; 
-    padding-right: 0px; 
-}
-#myList {
-    position: relative; 
-    left: 50px; 
-    margin-left: 10px; 
-    padding-left: 0px; 
-    max-width: 90%; 
-}
 
 .listUA {
     font-size: 30px; 

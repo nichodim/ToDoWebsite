@@ -32,11 +32,6 @@ function createToDo() {
     d.appendChild(l); 
 
     textbox.value = "";
-    /*if (counters.id == 1) {
-        firstBAdjust(1); 
-    } else {
-        ToDoAdjustments();
-    }*/
 
     counters.id++; 
     saveState(); 
@@ -62,7 +57,6 @@ function removeToDo() {
     remb.innerHTML = `CLEAR (${counters.rcount})`; 
 
     cleanStorage(); 
-    ToDoAdjustments(); 
     saveState(); 
 }
 
@@ -99,27 +93,3 @@ function textEnter() {
     }
     });
 }
-/*
-// Adjusts first button to align better with list
-function firstBAdjust(idnum) {
-    const b = document.getElementById(`b${idnum}`); 
-    b.style.marginTop = '7.65px'; 
-}
-
-// Due to the previous id1 button often being deleted, a new
-// first button is found to adjust beginning margin
-// Definitely a better way to do this
-function ToDoAdjustments() {
-    const bUA = document.getElementsByClassName('checkerUA'); 
-    if (bUA.length == 0) {
-        return; 
-    }
-    const bUAnums = []; 
-
-    // Pushes all id numbers from existing buttons into array
-    for (let i = 0; i < bUA.length; i++) {
-        bUAnums.push(bUA[i].id.slice(1)); 
-    }
-    //Sends smallest number in array to adjust position
-    firstBAdjust(Math.min(... bUAnums)); 
-}*/

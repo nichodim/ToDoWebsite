@@ -61,7 +61,7 @@ function ResetState() {
 
             document.getElementById("mainbody").append(d); 
             d.appendChild(b); 
-            d.appendChild(l);  
+            d.appendChild(l); 
         }
     }
 }
